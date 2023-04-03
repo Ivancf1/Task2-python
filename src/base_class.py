@@ -15,3 +15,6 @@ class Base:
 
     def print_define(self, filename: str) -> list:
         pass
+
+    def find_string_number(self) -> int:
+        pass
