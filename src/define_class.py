@@ -30,5 +30,3 @@ class Define(Base):
             define_object_list.append(define_object)
 
         return define_object_list
-
-

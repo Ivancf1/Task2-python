@@ -13,20 +13,23 @@ class Function(Base):
         temp_list = [element for element in file_content if element.find('(')]
         return temp_list
 
-    def __find_func_type(self, string: str) -> tuple:
+    def __find_func_type(self, string: str) -> str:
         temp_list_words = string.split()
-        temp_tuple = tuple()
+        temp_list_type = []
+
         for element in temp_list_words:
-            while not element.find('('):
-                temp_tuple.insert(element)
-        return temp_tuple
+            if '(' not in element:
+                temp_list_type.append(element)
+            else:
+                break
+        return ' '.join(temp_list_type)
 
     def __find_func_name(self, string: str) -> str:
         temp_list_words = string.split()
 
         func_name = ''
         for element in temp_list_words:
-            if element.find('('):
+            if '(' in element:
                 func_name = element[:element.index('(')]
         return func_name
 
@@ -45,4 +48,3 @@ class Function(Base):
             function_object = FunctionPrinting(returned_type, func_name, func_arguments)
             function_object_list.append(function_object)
         return function_object_list
-    
